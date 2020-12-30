@@ -1,0 +1,90 @@
+{% extends "back/template/layout.html" %} 
+{% block content %}
+<!-- <div class="page-breadcrumb">
+    <div class="row">
+        <div class="col-12 d-flex no-block align-items-center">
+            <h4 class="page-title">Dashboard</h4>
+            <div class="ml-auto text-right">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Library</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div> -->
+<!-- ============================================================== -->
+<!-- End Bread crumb and right sidebar toggle -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- Container fluid  -->
+<!-- ============================================================== -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title d-inline mb-5">Account Setting</h3>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-title">
+                                    <h4>Profil Setting</h4>
+                                </div>
+                                <div class="card-body">
+                                    <form id="formEditProfil" action="" method="post">
+                                        <div class="form-group">
+                                            <label for="nama" class="form-control-label">Nama</label>
+                                            <input type="text" id="nama" class="form-control border border-secondary" value="{{user.nama}}" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="username" class="form-control-label">Username</label>
+                                            <input type="text" id="username" class="form-control border border-secondary" value="{{user.username}}" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <button class="btn btn-info btn-sm float-right" id="saveProfil"><i class="fa fa-save"></i> Simpan</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="card">
+                                <div class="card-title">
+                                    <h4>Password Setting</h4>
+                                </div>
+                                <div class="card-body">
+                                    <form id="formEditPassword" method="post">
+                                        <div class="form-group">
+                                            <label for="password_lama" class="form-control-label">Password Lama</label>
+                                            <input type="password" id="pass_lama" class="form-control border border-secondary" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="password_baru" class="form-control-label">Password Baru</label>
+                                            <input type="password" id="pass_baru" class="form-control border border-secondary" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="konfirmasi_password" class="form-control-label">Konfirmasi Password</label>
+                                            <input type="password" id="conf_pass" class="form-control border border-secondary" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <button class="btn btn-info btn-sm float-right" id="savePassword"><i class="fa fa-save"></i> Simpan</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block js %}
+<script src="{{base_url}}assets/back/action/editProfil.js"></script>
+{% endblock %}

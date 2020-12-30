@@ -1,0 +1,67 @@
+{% extends "front/template/layout.html" %}{% block content %}
+
+<!-- ======= About Us Section ======= -->
+<section id="about" class="about" style="margin-bottom: -90px !important; margin-top: 20px !important;">
+    <div class="container mb-5" data-aos="fade-up">
+        <div class="section-title">
+            <h2>KONSULTASI</h2>
+        </div>
+        {% if gejala|length > 0 %}
+        <div class="row content">
+            <div class="col-lg-8 offset-md-2">
+                <div class="alert alert-info text-center" role="alert">
+                    <h5 class="alert-heading">INFORMASI !</h5>
+                    <p style="font-size:12px">Selesaikan proses konsultasi, atau klik cancel untuk membatalkan proses Konsultasi</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row content">
+            <div class="col-lg-8 offset-md-2">
+                <div class="card" >
+                    <div class="card-body text-center">
+                        <form id="formKonsul" method="post">
+                            {% for item in gejala %}
+                            <h5>Apakah Anda Mengalami Gejala {{item.nama_gejala}} ?</h5>
+                            <input type="text" id="id_gejala" value="{{item.id}}" hidden>
+                            <input type="text" id="id_tamu" value="{{id_tamu}}" hidden>
+                            <div class="custom-control custom-radio custom-control-inline mt-3">
+                                <input type="radio" id="customRadioInline1" name="pilihanKonsul" value="YA" class="custom-control-input">
+                                <label class="custom-control-label" for="customRadioInline1"><h5>YA</h5></label>
+                            </div>
+                            <div class="custom-control custom-radio custom-control-inline mt-3">
+                                <input type="radio" id="customRadioInline2" name="pilihanKonsul" value="TIDAK" class="custom-control-input" selected>
+                                <label class="custom-control-label" for="customRadioInline2"><h5>TIDAK</h5></label>
+                            </div>
+                            <div class="form-group mt-3">
+                                <button class="btn btn-danger btn-sm" id="cancelKonsul">Cancel <i class="bx bx-x-circle"></i></button>
+                                <button type="submit" class="btn btn-primary btn-sm">Lanjut <i class="bx bx-arrow-from-left"></i></button>
+                            </div>
+                            {% endfor %}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="row content p-5">
+            <div class="col-lg-8 offset-md-2 text-center">
+                <div class="card">
+                    <div class="card-body">
+                        <h5>Konsultasi Selesai !</h5>
+                        Klik tombol <strong>Lihat Hasil</strong> untuk melihat hasil analisa dari konsultasi yang telah anda lakukan sebelumnya
+                        <br>
+                        <br>
+                        <button class="btn btn-primary" id="btnLihatHasil"><i class="bx bx-file"></i> Lihat Hasil</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section><!-- End About Us Section -->
+  
+{% endblock %}
+{% block js %}
+<script src="{{base_url}}assets/front/action/konsultasi.js"></script>
+{% endblock %}
